@@ -5,6 +5,7 @@ const Form = () => {
   const [name,setName]=useState([])
   const usename=(event)=>{
       setName(event.target.value)
+      
 
   }
   // const [pass,setPass]=useState()
@@ -16,7 +17,8 @@ const Form = () => {
     console.log(name)
      let id=1;
      if(name.length>0 ){
-        id=name[0].id+1
+        id=name[0]+1
+        console.log(id)
      }
      let bel={id:id,name:name}
      let val=[bel,...name]
@@ -26,14 +28,12 @@ const Form = () => {
   return (
     <>
      <form onSubmit={Myfunction}>
-        <input type="text" value={name} placeholder='Name' onChange={(event)=>usename(event)}></input>
+        <input type="text" placeholder='Name' onChange={(event)=>usename(event)}></input>
           {/* <input type="password" value={pass} placeholder='password' onChange={(event)=>usepass(event)}></input>  */}
         <button>Click her</button>
         {/* <button type='submit' onClick={ashandltbtn}>Delete</button> */}
+        <Form name={name}/>
     </form>
-    {name.map((Todo)=>{
-      return <Set name={Todo} key={Todo.id}/>
-    })}
     </>
   )
 }
